@@ -1,3 +1,13 @@
+# Run Locally
+1. install requirements
+```sh
+pip install -r requirements.txt
+```
+2. run the application
+```sh
+python application || python3 application
+```
+
 # Deployment 
 
 1. create a secrets.py file on root directory with the contents:

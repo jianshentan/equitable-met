@@ -32,7 +32,7 @@ def create_app(
     mc.set_list_id(mc_list_id)
     
     # TODO: HACK
-    app.debug = True
+    app.debug = secrets.DEBUG
 
     # TODO this needs work, but works as a stop-gap
     if app.debug:

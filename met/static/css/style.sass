@@ -34,8 +34,9 @@ $gray: #eee
 // CUSTOM CLASES --------
 .contain
   margin: 0 auto 
-  
   @include non-mobile
+    padding-left: 1em
+    padding-right: 1em
     @include monitor
       max-width: 1280px
     @include desktop
@@ -44,6 +45,11 @@ $gray: #eee
 .bold
   font-weight: bold
   
+.italic
+  font-style: italic
+  
+.underline
+  text-decoration: underline
 
 // GENERAL --------
 h1, h2, h3, h4, h5, h6
@@ -283,14 +289,30 @@ body
         grid-template-rows: 1fr
 
 
+#why:after
+  content: ""
+  display: block
+  position: absolute
+  top: 0
+  left: 0
+  background-image: url('/assets/images/met-gallery.jpg')
+  background-size: cover
+  background-position: center
+  width: 100%
+  height: 100%
+  opacity : 0.2
+  z-index: -1
 #why
-  background-color: $red
-  color: white
+  color: black
+  position: relative
   
   #why-container 
     display: grid
+    padding-left: 5em
+    padding-right: 5em
     text-align: center
-    grid-template-columns: 1fr 3fr
+    grid-column-gap: 3em
+    grid-template-columns: 5fr 4fr
     grid-template-rows: 1fr auto
     grid-template-areas: "header header" "left right"
     padding-bottom: 5em
@@ -303,12 +325,100 @@ body
       margin-bottom: 2em
     #why-left
       grid-area: left
+      justify-self: center
+      align-self: center     
+      text-align: left
+      #why-left-header
+        font-size: $h3-font-size
+        color: $red
+        font-weight: bold
+      #why-left-desc
+        font-size: $h4-font-size
     #why-right
       grid-area: right
       text-align: left
+      justify-self: center
+      align-self: center
       font-size: $body-font-size
+      background-color: white
+      padding: 2em
+      box-shadow: 2px 2px 5px rgba(50,50,50,0.3)
+      
+      #why-right-quote-grid
+        grid-template-row: auto auto
+        grid-template-areas: "quote" "by"
     
+        #why-right-quote-quote
+          grid-area: quote
+          font-style: italic
+        #why-right-quote-by
+          grid-area: by
+          margin-top: 1em
+          justify-self: right
+          text-align: right
 
+#labor
+  background-color: $red
+  color: white
+  
+  #labor-container
+    padding-top: 5em
+    padding-bottom: 5em
+    padding-left: 2em
+    padding-right: 2em
+    display: grid
+    grid-row-gap: 5em
+    grid-column-gap: 2em
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: auto auto auto
+    grid-template-areas: "top-text top-text" "left right" "bot-text bot-text"
+
+    #labor-top-text
+      width: 75%
+      grid-area: top-text
+      font-size: $h3-font-size
+      
+    #labor-left
+      grid-area: left
+      border: 4px dashed white
+      border-radius: 3px
+      padding-top: 2em
+      padding-bottom: 2em
+      padding-left: 4em
+      padding-right: 4em
+      #labor-left-header
+        text-decoration: underline
+        font-size: $h4-font-size
+      #labor-left-desc
+        font-size: $body-font-size
+    
+    #labor-right
+      grid-area: right
+      align-self: center 
+      text-align: center
+      justify-self: center
+      img
+        width: 29em
+        
+      #labor-right-text-container
+        width: 29em
+        justify-content: center
+        display: grid
+        text-align: left
+        grid-template-columns: 1fr 1.5fr 1fr
+        grid-template-areas: "text-left . text-right"
+        #labor-right-left-text
+          grid-area: text-left
+        #labor-right-right-text
+          grid-area: text-right
+    #labor-bot-text
+      font-size: $body-font-size
+      background-color: $gray
+      color: $red
+      padding: 1em
+      grid-area: bot-text
+      
+  
 #where-met-stands
   #where-met-stands-container
     display: grid
@@ -379,6 +489,7 @@ body
  
 
 #sliding-scale-performance
+  padding-bottom: 2em
   @include mobile
     background-color: $gray
 
@@ -461,18 +572,21 @@ body
     @include mobile
       padding: 1em
       font-size: $h3-font-size-m
+      width: 90%
     
   #sliding-scale-performance-reference
-    background-color: $gray
     color: black
     text-align: center
     @include non-mobile
+      background-color: $gray
       font-size: $body-font-size
       padding: 1em 1.5em 1em 1.5em
       margin-bottom: 2em
     @include mobile
+      background-color: white
       font-size: $body-font-size-m
       padding: 1em
+      width: 90%
  
 #cta
   background-color: $red
@@ -482,25 +596,40 @@ body
     display: grid
     text-align: center
     grid-template-columns: 1fr
-    grid-template-rows: 1fr 1fr auto
-    grid-template-areas: "prompt" "action" "social"
-    padding-top: 5em
-    padding-bottom: 5em
+    position: relative
+    @include non-mobile
+      grid-template-rows: 1fr 1fr auto
+      grid-template-areas: "prompt" "action" "social"
+      padding-top: 5em
+      padding-bottom: 5em
+    @include mobile
+      grid-template-rows: 1fr 1fr
+      grid-template-areas: "prompt" "action"
+      padding-top: 2em
+      padding-bottom: 2em
     
     #cta-prompt
       grid-area: prompt
-      font-size: $h2-font-size
+      @include non-mobile
+        font-size: $h2-font-size
+      @include mobile
+        font-size: $h2-font-size-m
     
     #cta-action
       grid-area: action
       
       .subscribe-form-input
         font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
-        font-size: $h3-font-size
         background-color: $red
         color: white
         border: 2px solid white
-        padding: 0.5em 1em 0.5em 1em
+        @include non-mobile
+          padding: 0.5em 1em 0.5em 1em
+          font-size: $h3-font-size
+        @include mobile
+          margin-bottom: 1em
+          padding: 2vw
+          font-size: $h3-font-size-m
       .subscribe-form-input:-ms-input-placeholder
         color: white
       .subscribe-form-input::-ms-input-placeholder
@@ -509,18 +638,30 @@ body
         color: white
       .subscribe-form-submit
         font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
-        font-size: $h3-font-size
         background-color: white
         border: 2px solid white
-        color: red
-        padding: 0.5em 1em 0.5em 1em
+        color: $red
+        @include non-mobile
+          font-size: $h3-font-size
+          padding: 0.5em 1em 0.5em 1em
+        @include mobile
+          padding: 2vw
+          font-size: $h3-font-size-m
         
     #cta-social
-      margin-top: 2em
       grid-area: social    
-      img
-        width: 4em
-        margin: 0 1em
+      @include non-mobile
+        margin-top: 2em
+        img
+          width: 4em
+          margin: 0 1em
+      @include mobile
+        position: absolute
+        bottom: 1em
+        right: 1em
+        img
+          width: 10vw
+          margin: 0 2vw
         
 #credits
   background-color: black
@@ -530,44 +671,74 @@ body
     display: grid
     padding-top: 2.5em
     padding-bottom: 2.5em
-    grid-column-gap: 2em
-    grid-row-gap: 1em
-    grid-template-columns: 1fr 1fr 1fr 1fr
-    grid-template-rows: 1fr auto 1fr 1fr
-    grid-template-areas: "title . support info" "laagp gradient abog info" ". . . ." ". footer footer ."
+    @include non-mobile
+      grid-column-gap: 2em
+      grid-row-gap: 1em
+      grid-template-columns: 1fr 1fr 1fr 1fr
+      grid-template-rows: 1fr auto 1fr 1fr
+      grid-template-areas: "title . support info" "laagp gradient abog info" ". . . ." ". footer footer ."
+    @include mobile
+      grid-template-columns: 1fr 
+      grid-template-rows: 1fr auto auto auto auto
+      grid-template-areas: "title" "laagp" "gradient" "support" "abog" "info" "footer"
     
     #credits-info
       grid-area: info
-      text-align: right
-      justify-self: end
-      #credits-logo
-        img
-          width: 10em
+      @include non-mobile
+        text-align: right
+        justify-self: end
+        #credits-logo
+          img
+            width: 10em
+      @include mobile
+        margin-top: 2em
+        text-align: center 
+        justify-self: center 
+        #credits-logo
+          img
+            width: 35vw
     
     #credits-title
       text-align: left
       grid-area: title
+      @include mobile
+        padding: 1em
+        font-style: italic
     
     #credits-supported-title
       text-align: left
       grid-area: support
+      @include mobile
+        padding: 1em
+        font-style: italic
       
     #credits-gradient
       grid-area: gradient
+      @include mobile
+        padding: 1em
       
     #credits-laagp
       grid-area: laagp
-      
+      @include mobile
+        padding: 1em
+     
     #credits-abog
       grid-area: abog
-      
+      @include mobile
+        padding: 1em
+     
     .credits-header
-      font-size: $body-font-size
       margin-bottom: 1em
       text-decoration: underline
       font-weight: bold
+      @include non-mobile
+        font-size: $body-font-size
+      @include mobile
+        font-size: $body-font-size-m
 
     #footer
       align-self: end
       grid-area: footer
       text-align: center
+      @include mobile
+        display: none
