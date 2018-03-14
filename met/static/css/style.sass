@@ -18,6 +18,14 @@
 *
   box-sizing: border-box
 
+@mixin mobile
+  @media only screen and (max-width : 640px)
+    @content
+    
+@mixin non-mobile
+  @media only screen and (min-width : 640px)
+    @content
+
 // VARIABLES --------
 $red: #e20c32
 $gray: #eee
@@ -25,11 +33,13 @@ $gray: #eee
     
 // CUSTOM CLASES --------
 .contain
-  @include monitor
-    max-width: 1280px
-  @include desktop
-    max-width: 1024px
   margin: 0 auto 
+  
+  @include non-mobile
+    @include monitor
+      max-width: 1280px
+    @include desktop
+      max-width: 1024px
 
 .bold
   font-weight: bold
@@ -44,6 +54,13 @@ $h2-font-size: 2.5em
 $h3-font-size: 2.0em
 $h4-font-size: 1.5em
 $body-font-size: 1.25em
+
+$h1-font-size-m: 2.0em
+$h2-font-size-m: 1.6em
+$h3-font-size-m: 1.2em
+$h4-font-size-m: 1.0em
+$body-font-size-m: 1.0em
+
 
 body
   font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
@@ -62,11 +79,14 @@ body
   z-index: 100
   
   #nav
-    grid-area: nav
-    justify-self: center 
-    grid-column-start: 2
-    grid-column-end: 2
-    background-color: white
+    @include mobile 
+      display: none
+    @include non-mobile
+      grid-area: nav
+      justify-self: center 
+      grid-column-start: 2
+      grid-column-end: 2
+      background-color: white
     .nav-el
       display: inline-block
       cursor: pointer
@@ -81,50 +101,74 @@ body
   #title-box
     background-color: $red
     color: white
-    padding: 1em
     display: inline-block
-    max-width: 10em
     font-weight: bold
     font-style: italic
-    position: absolute
     top: 0
-    @include monitor
+    padding: 1em
+    @include non-mobile
+      position: absolute
       font-size: $h2-font-size
-    @include desktop
-      font-size: $h2-font-size
-    @include tablet
-      font-size: $h3-font-size
-    @include phone
-      font-size: $h3-font-size
+      max-width: 10em
+    @include mobile
+      position: relative
+      font-size: $h3-font-size-m
+      width: 100vw
+      max-width: inherit
   
   #splash-content
-    margin-top: 7.5em
-    margin-bottom: 7.5em
     display: grid
     justify-content: center
-    grid-template-columns: auto 25em
-    grid-template-rows: auto
+    @include non-mobile
+      margin-top: 7.5em
+      margin-bottom: 7.5em
+      grid-template-columns: auto 25em
+      grid-template-rows: auto
+    @include mobile
+      margin-top: 0px 
+      margin-bottom: 0px
+      grid-template-columns: auto
+      grid-template-rows: auto auto
+      
     #splash-image
       grid-column-start: 1
       grid-column-end: 1
       grid-row-start: 1
       grid-row-end: 1
-      img
-        max-width: 95%
+      @include non-mobile
+        img
+          max-width: 95%
+      @include mobile
+        img 
+          max-width: 100%
     #splash-desc
-      grid-column-start: 2
-      grid-column-end: 2
-      grid-row-start: 1
-      grid-row-end: 1
+      @include non-mobile
+        grid-column-start: 2
+        grid-column-end: 2
+        grid-row-start: 1
+        grid-row-end: 1
+      @include mobile
+        grid-column-start: 1
+        grid-column-end: 1
+        grid-row-start: 2
+        grid-row-end: 2
+        padding: 2em
       .part-one
         color: $red
-        font-size: $h4-font-size
+        @include non-mobile
+          font-size: $h4-font-size
+          padding-bottom: 2em
+        @include mobile
+          font-size: $h4-font-size-m
       .part-two
         color: black
         font-weight: bold
         font-style: italic
-        font-size: $h3-font-size
-
+        @include non-mobile
+          font-size: $h3-font-size
+        @include mobile
+          font-size: $h3-font-size-m
+  
 #scale
   background-color: $gray
   color: $red
@@ -132,21 +176,29 @@ body
   #scale-container
     display: grid
     justify-content: center
-    grid-template-columns: 1fr 1fr
-    grid-template-rows: 1fr 2fr
-    grid-template-areas: "header header" "left right"
     padding-bottom: 2em
+    @include non-mobile
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: 1fr 2fr
+      grid-template-areas: "header header" "left right"
+    @include mobile
+      grid-template-columns: 1fr 
+      grid-template-rows: auto auto auto
+      grid-template-areas: "header" "left" "right"
     
     #scale-header
       grid-area: header
       text-align: center
       font-weight: bold
-      font-size: $h2-font-size
-      margin-top: 2em
-      margin-bottom: 2em
       justify-self: center
       color: black
-      
+      margin-top: 2em
+      margin-bottom: 2em
+      @include non-mobile
+        font-size: $h2-font-size
+      @include mobile
+        font-size: $h2-font-size-m
+        
       #scale-price-legend
         background-color: white
         color: $red
@@ -164,7 +216,10 @@ body
       #scale-annotation
         text-align: center
         color: black
-        font-size: $body-font-size
+        @include non-mobile
+          font-size: $body-font-size
+        @include mobile
+          font-size: $body-font-size-m
         
         #annotation-income
           color: $red
@@ -191,21 +246,32 @@ body
             color: $red
             background-color: white
             font-weight: bold
-            font-size: $h3-font-size
-            line-height: $h3-font-size
+            @include non-mobile
+              font-size: $h3-font-size
+              line-height: $h3-font-size
+            @include mobile
+              font-size: $h2-font-size-m
+              line-height: $h2-font-size-m
           .scale-cell-income
             background-color: $red
             color: white
             line-height: 1.8em
+            @include mobile
+              font-size: 0.8em
       
     #scale-right
       grid-area: right
       justify-self: center
       align-self: center
-      font-size: $h4-font-size
-      width: 80%
       color: black
       padding-bottom: 2em
+      @include non-mobile
+        font-size: $h4-font-size
+        width: 80%
+      @include mobile
+        font-size: $h4-font-size-m
+        padding: 1em
+        margin-top: 2em
          
       #scale-grid-legend
         margin-top: -5em
@@ -247,18 +313,29 @@ body
   #where-met-stands-container
     display: grid
     text-align: center
-    grid-gap: 5px
-    grid-template-columns: repeat(3, 1fr)
-    grid-template-rows: 1fr auto
-    grid-template-areas: "header header header" "left middle right"
     padding-bottom: 5em
+    @include non-mobile
+      grid-gap: 5px
+      grid-template-columns: repeat(3, 1fr)
+      grid-template-rows: 1fr auto
+      grid-template-areas: "header header header" "left middle right"
+    @include mobile
+      grid-row-gap: 2em
+      grid-template-columns: 1fr
+      grid-template-rows: auto auto auto auto
+      grid-template-areas: "header" "left" "middle" "right"
     
     #where-met-stands-header
-      font-size: $h2-font-size
-      font-weight: bold
-      margin-top: 2em
-      margin-bottom: 2em
       grid-area: header
+      font-weight: bold
+      @include non-mobile
+        font-size: $h2-font-size
+        margin-top: 2em
+        margin-bottom: 2em
+      @include mobile 
+        font-size: $h2-font-size-m
+        margin-top: 1em
+        margin-bottom: 1em
     #where-met-stands-left
       grid-area: left 
       justify-self: center
@@ -275,75 +352,127 @@ body
     .where-met-stands-sub-title
       .where-met-stands-icon
         display: inline-block
-        line-height: $h2-font-size
-        img
-          height: 5.0em
+        @include non-mobile
+          line-height: $h2-font-size
+          img
+            height: 5.0em
+        @include mobile
+          line-height: $h2-font-size-m
+          img
+            height: 15vw
       .where-met-stands-text
-        font-size: 4.0em
+        @include non-mobile
+          font-size: 4.0em
+        @include mobile
+          font-size: 2.5em
         font-weight: bold
         color: $red
         display: inline-block
         vertical-align: top
         
     .where-met-stands-desc
-      font-size: $body-font-size
+      @include non-mobile
+        font-size: $body-font-size
+      @include mobile
+        font-size: $body-font-size-m
       text-align: left
  
 
 #sliding-scale-performance
+  @include mobile
+    background-color: $gray
 
   #sliding-scale-performance-container
     display: grid
     text-align: center
-    grid-gap: 5px
-    grid-template-columns: repeat(3, 1fr)
-    grid-template-rows: 1fr auto
-    grid-template-areas: "header header header" "left right right"
     margin-bottom: 2em
+    @include non-mobile
+      grid-gap: 5px
+      grid-template-columns: repeat(3, 1fr)
+      grid-template-rows: 1fr auto
+      grid-template-areas: "header header header" "left right right"
+    @include mobile
+      grid-template-columns: 1fr
+      grid-template-rows: auto auto 1fr
+      grid-template-areas: "header" "right" "left"
  
     #sliding-scale-performance-header
       grid-area: header
       color: $red
       justify-self: center
       align-self: center
-      margin-top: 2em
-      margin-bottom: 2em
-      font-size: $h2-font-size
       font-weight: bold
+      @include non-mobile
+        margin-top: 2em
+        margin-bottom: 2em
+        font-size: $h2-font-size
+      @include mobile
+        margin-top: 1em
+        margin-bottom: 1em
+        font-size: $h2-font-size-m
+        
     #sliding-scale-performance-left
       grid-area: left
-      text-align: left
       justify-self: center
-      width: 80%
+      @include non-mobile
+        text-align: left
+        width: 80%
+      @include mobile
+        text-align: left 
+        padding: 1em  
       #sliding-scale-performance-sub-title
-        font-size: 5.0em
-        font-weight: bold
         color: $red
+        font-weight: bold
+        @include non-mobile
+          font-size: 5.0em
+        @include mobile
+          font-size: 2.5em
       #sliding-scale-performance-desc
-        font-size: $body-font-size
+        @include non-mobile
+          font-size: $body-font-size
+        @include mobile
+          font-size: $body-font-size-m
+        
     #sliding-scale-performance-right
       grid-area: right
-      text-align: left
-      justify-self: left 
-      width: 90%
-      img
+      align-self: center
+      @include non-mobile
+        text-align: left
+        justify-self: left 
+        width: 90%
+        img
+          width: 100%
+      @include mobile
+        text-align: center
+        justify-self: center 
         width: 100%
+        text-align: center
+        img
+          width: 90%
   
   #sliding-scale-performance-conclusion
     background-color: $red
     color: white
-    font-size: $h3-font-size
-    padding: 1em 1.5em 1em 1.5em
     text-align: center
-    margin-top: 2em
+    @include non-mobile
+      margin-top: 2em
+      font-size: $h3-font-size
+      padding: 1em 1.5em 1em 1.5em
+    @include mobile
+      padding: 1em
+      font-size: $h3-font-size-m
     
   #sliding-scale-performance-reference
     background-color: $gray
     color: black
-    font-size: $body-font-size
-    padding: 1em 1.5em 1em 1.5em
     text-align: center
-    margin-bottom: 2em
+    @include non-mobile
+      font-size: $body-font-size
+      padding: 1em 1.5em 1em 1.5em
+      margin-bottom: 2em
+    @include mobile
+      font-size: $body-font-size-m
+      padding: 1em
  
 #cta
   background-color: $red

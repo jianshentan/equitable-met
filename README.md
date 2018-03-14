@@ -26,3 +26,10 @@ docker push <docker-hub-username>/met-equity:latest
 ```sh
 az webapp create --resource-group <my-resource-group> --plan <my-app-service-plan> --name met-equity --deployment-container-image-name <docker-hub-username>/met-equity:latest
 ```
+
+# Redeploy
+
+To redeploy changes:
+1. Build the docker image after making your changes
+2. Push the image to docker hub
+3. Restart the Linux Webapp and it will automatically pull the image down to redeploy
