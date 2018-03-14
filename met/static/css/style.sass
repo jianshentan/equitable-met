@@ -1,0 +1,444 @@
+// MEDIA QUERIES --------
+@mixin phone
+  @media only screen and (max-width : 640px)
+    @content
+
+@mixin tablet
+  @media only screen and (min-width : 640px) and (max-width : 768px)
+    @content
+
+@mixin desktop
+  @media only screen and (min-width : 768px) and (max-width : 1024px)
+    @content
+    
+@mixin monitor
+  @media only screen and (min-width : 1024px)
+    @content
+
+*
+  box-sizing: border-box
+
+// VARIABLES --------
+$red: #e20c32
+$gray: #eee
+  
+    
+// CUSTOM CLASES --------
+.contain
+  @include monitor
+    max-width: 1280px
+  @include desktop
+    max-width: 1024px
+  margin: 0 auto 
+
+.bold
+  font-weight: bold
+  
+
+// GENERAL --------
+h1, h2, h3, h4, h5, h6
+  margin: 0
+
+$h1-font-size: 3.5em
+$h2-font-size: 2.5em
+$h3-font-size: 2.0em
+$h4-font-size: 1.5em
+$body-font-size: 1.25em
+
+body
+  font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
+  margin: 0px
+  font-size: 1.0em
+  
+// SECTIONS --------
+#header
+  display: grid
+  position: fixed
+  width: 100vw
+  top: 0px
+  grid-template-columns: auto 25em
+  grid-template-rows: auto
+  grid-template-areas: "main nav"
+  z-index: 100
+  
+  #nav
+    grid-area: nav
+    justify-self: center 
+    grid-column-start: 2
+    grid-column-end: 2
+    background-color: white
+    .nav-el
+      display: inline-block
+      cursor: pointer
+      margin-left: 1em
+      margin-right: 1em
+      line-height: 5em
+    .nav-el:hover
+      text-decoration: underline
+
+#splash
+  
+  #title-box
+    background-color: $red
+    color: white
+    padding: 1em
+    display: inline-block
+    max-width: 10em
+    font-weight: bold
+    font-style: italic
+    position: absolute
+    top: 0
+    @include monitor
+      font-size: $h2-font-size
+    @include desktop
+      font-size: $h2-font-size
+    @include tablet
+      font-size: $h3-font-size
+    @include phone
+      font-size: $h3-font-size
+  
+  #splash-content
+    margin-top: 7.5em
+    margin-bottom: 7.5em
+    display: grid
+    justify-content: center
+    grid-template-columns: auto 25em
+    grid-template-rows: auto
+    #splash-image
+      grid-column-start: 1
+      grid-column-end: 1
+      grid-row-start: 1
+      grid-row-end: 1
+      img
+        max-width: 95%
+    #splash-desc
+      grid-column-start: 2
+      grid-column-end: 2
+      grid-row-start: 1
+      grid-row-end: 1
+      .part-one
+        color: $red
+        font-size: $h4-font-size
+      .part-two
+        color: black
+        font-weight: bold
+        font-style: italic
+        font-size: $h3-font-size
+
+#scale
+  background-color: $gray
+  color: $red
+  
+  #scale-container
+    display: grid
+    justify-content: center
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr 2fr
+    grid-template-areas: "header header" "left right"
+    padding-bottom: 2em
+    
+    #scale-header
+      grid-area: header
+      text-align: center
+      font-weight: bold
+      font-size: $h2-font-size
+      margin-top: 2em
+      margin-bottom: 2em
+      justify-self: center
+      color: black
+      
+      #scale-price-legend
+        background-color: white
+        color: $red
+      
+      #scale-income-legend
+        background-color: $red
+        color: white
+        
+    #scale-left
+      grid-area: left
+      justify-self: center
+      align-self: center
+      width: 80%
+      
+      #scale-annotation
+        text-align: center
+        color: black
+        font-size: $body-font-size
+        
+        #annotation-income
+          color: $red
+        #annotation-price
+          color: $red
+      
+      #scale-grid
+        width: 100%
+        display: grid
+        text-align: center
+        grid-gap: 5px
+        grid-template-columns: repeat(4, 1fr)
+        grid-template-rows: repeat(4, 1fr)
+         
+        .scale-cell:hover
+          border: 2px solid $red
+          
+        .scale-cell
+          border: 2px solid white
+          width: 100%
+          height: 100%
+          
+          .scale-cell-price
+            color: $red
+            background-color: white
+            font-weight: bold
+            font-size: $h3-font-size
+            line-height: $h3-font-size
+          .scale-cell-income
+            background-color: $red
+            color: white
+            line-height: 1.8em
+      
+    #scale-right
+      grid-area: right
+      justify-self: center
+      align-self: center
+      font-size: $h4-font-size
+      width: 80%
+      color: black
+      padding-bottom: 2em
+         
+      #scale-grid-legend
+        margin-top: -5em
+        width: 100%
+        display: grid
+        text-align: center
+        grid-gap: 5px
+        grid-template-columns: repeat(4, 1fr)
+        grid-template-rows: 1fr
+
+
+#why
+  background-color: $red
+  color: white
+  
+  #why-container 
+    display: grid
+    text-align: center
+    grid-template-columns: 1fr 3fr
+    grid-template-rows: 1fr auto
+    grid-template-areas: "header header" "left right"
+    padding-bottom: 5em
+    
+    #why-header
+      grid-area: header
+      font-size: $h2-font-size
+      font-weight: bold
+      margin-top: 2em
+      margin-bottom: 2em
+    #why-left
+      grid-area: left
+    #why-right
+      grid-area: right
+      text-align: left
+      font-size: $body-font-size
+    
+
+#where-met-stands
+  #where-met-stands-container
+    display: grid
+    text-align: center
+    grid-gap: 5px
+    grid-template-columns: repeat(3, 1fr)
+    grid-template-rows: 1fr auto
+    grid-template-areas: "header header header" "left middle right"
+    padding-bottom: 5em
+    
+    #where-met-stands-header
+      font-size: $h2-font-size
+      font-weight: bold
+      margin-top: 2em
+      margin-bottom: 2em
+      grid-area: header
+    #where-met-stands-left
+      grid-area: left 
+      justify-self: center
+      width: 90%
+    #where-met-stands-middle
+      grid-area: middle 
+      justify-self: center
+      width: 90%
+    #where-met-stands-right     
+      grid-area: right
+      justify-self: center
+      width: 90%
+      
+    .where-met-stands-sub-title
+      .where-met-stands-icon
+        display: inline-block
+        line-height: $h2-font-size
+        img
+          height: 5.0em
+      .where-met-stands-text
+        font-size: 4.0em
+        font-weight: bold
+        color: $red
+        display: inline-block
+        vertical-align: top
+        
+    .where-met-stands-desc
+      font-size: $body-font-size
+      text-align: left
+ 
+
+#sliding-scale-performance
+
+  #sliding-scale-performance-container
+    display: grid
+    text-align: center
+    grid-gap: 5px
+    grid-template-columns: repeat(3, 1fr)
+    grid-template-rows: 1fr auto
+    grid-template-areas: "header header header" "left right right"
+    margin-bottom: 2em
+ 
+    #sliding-scale-performance-header
+      grid-area: header
+      color: $red
+      justify-self: center
+      align-self: center
+      margin-top: 2em
+      margin-bottom: 2em
+      font-size: $h2-font-size
+      font-weight: bold
+    #sliding-scale-performance-left
+      grid-area: left
+      text-align: left
+      justify-self: center
+      width: 80%
+      #sliding-scale-performance-sub-title
+        font-size: 5.0em
+        font-weight: bold
+        color: $red
+      #sliding-scale-performance-desc
+        font-size: $body-font-size
+    #sliding-scale-performance-right
+      grid-area: right
+      text-align: left
+      justify-self: left 
+      width: 90%
+      img
+        width: 100%
+  
+  #sliding-scale-performance-conclusion
+    background-color: $red
+    color: white
+    font-size: $h3-font-size
+    padding: 1em 1.5em 1em 1.5em
+    text-align: center
+    margin-top: 2em
+    
+  #sliding-scale-performance-reference
+    background-color: $gray
+    color: black
+    font-size: $body-font-size
+    padding: 1em 1.5em 1em 1.5em
+    text-align: center
+    margin-bottom: 2em
+ 
+#cta
+  background-color: $red
+  color: white
+  
+  #cta-container
+    display: grid
+    text-align: center
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr 1fr auto
+    grid-template-areas: "prompt" "action" "social"
+    padding-top: 5em
+    padding-bottom: 5em
+    
+    #cta-prompt
+      grid-area: prompt
+      font-size: $h2-font-size
+    
+    #cta-action
+      grid-area: action
+      
+      .subscribe-form-input
+        font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
+        font-size: $h3-font-size
+        background-color: $red
+        color: white
+        border: 2px solid white
+        padding: 0.5em 1em 0.5em 1em
+      .subscribe-form-input:-ms-input-placeholder
+        color: white
+      .subscribe-form-input::-ms-input-placeholder
+        color: white
+      .subscribe-form-input::placeholder
+        color: white
+      .subscribe-form-submit
+        font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
+        font-size: $h3-font-size
+        background-color: white
+        border: 2px solid white
+        color: red
+        padding: 0.5em 1em 0.5em 1em
+        
+    #cta-social
+      margin-top: 2em
+      grid-area: social    
+      img
+        width: 4em
+        margin: 0 1em
+        
+#credits
+  background-color: black
+  color: white
+  
+  #credits-container
+    display: grid
+    padding-top: 2.5em
+    padding-bottom: 2.5em
+    grid-column-gap: 2em
+    grid-row-gap: 1em
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    grid-template-rows: 1fr auto 1fr 1fr
+    grid-template-areas: "title . support info" "laagp gradient abog info" ". . . ." ". footer footer ."
+    
+    #credits-info
+      grid-area: info
+      text-align: right
+      justify-self: end
+      #credits-logo
+        img
+          width: 10em
+    
+    #credits-title
+      text-align: left
+      grid-area: title
+    
+    #credits-supported-title
+      text-align: left
+      grid-area: support
+      
+    #credits-gradient
+      grid-area: gradient
+      
+    #credits-laagp
+      grid-area: laagp
+      
+    #credits-abog
+      grid-area: abog
+      
+    .credits-header
+      font-size: $body-font-size
+      margin-bottom: 1em
+      text-decoration: underline
+      font-weight: bold
+
+    #footer
+      align-self: end
+      grid-area: footer
+      text-align: center
