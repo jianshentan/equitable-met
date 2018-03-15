@@ -14,3 +14,4 @@ urllib3==1.22
 Werkzeug==0.12.2
 flask_wtf==0.14.2
 mailchimp3==2.1.0
+Flask-BasicAuth==0.2.0

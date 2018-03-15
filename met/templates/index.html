@@ -2,33 +2,32 @@
 <html lang="en">
 <head>
     
-    <!-- Global Site Tag (gtag.js) - Google Analytics 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67426824-8"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57531666-17"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments)};
-    gtag('js', new Date());
-
-    gtag('config', 'UA-67426824-8');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-57531666-17');
     </script>
-    -->
 
-    <title>Met Proposal</title>
+    <title>Towards Equitable Met Ticketing</title>
     <meta charset="utf-8">
     <meta name="robots" content="Index,Follow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="shortcut icon" href="/assets/images/favicon.ico">
-    <link rel="canonical" href="http://www.abc.com">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="canonical" href="http://www.equitablemet.com">
     <meta name="keywords" content="" >
     <meta name="description" content="">
 
     <!--FACEBOOK-->
     <meta property="og:title" content="" >
     <meta property="og:site_name" content="">
-    <meta property="og:url" content="http://www.abc.com" >
+    <meta property="og:url" content="http://www.equitablemet.com" >
     <meta property="og:description" content="" >
-    <meta property="og:image" content="/assets/images/share-image.png" >
+    <meta property="og:image" content="{{ url_for('static', filename='images/share-image.png') }}">
     <meta property="og:type" content="website" >
     <meta property="og:locale" content="en_US" >
 
@@ -36,8 +35,8 @@
     <meta property="twitter:card" content="summary_large_image" >
     <meta property="twitter:title" content="" >
     <meta property="twitter:description" content="" >
-    <meta property="twitter:url" content="http://www.abc.com" >
-    <meta property="twitter:image" content="/assets/images/share-image.png" >
+    <meta property="twitter:url" content="http://www.equitablemet.com" >
+    <meta property="twitter:image" content="{{ url_for('static', filename='images/share-image.png') }}">
 
     <!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -53,14 +52,11 @@
     <div id="header">
         <!--<div id="header-filler"></div>-->
         <div id="nav">
-            <div class="nav-el">
-                The Scale
-            </div>
              <div class="nav-el">
-                Read More
+                <a href="" target="_blank">Read More</a>
             </div>       
             <div class="nav-el">
-                Contact
+                <a href="mailto:info@gradient.care" target="_blank">Contact Us</a>
             </div>
         </div>
     </div>
@@ -72,7 +68,7 @@
         </div>
         <div id="splash-content" class="contain">
             <div id="splash-image">
-                <img src="/assets/images/met-building-splash.jpg">    
+                <img src="{{ url_for('static', filename='images/met-building-splash.jpg') }}">    
             </div>
             <div id="splash-desc">
                 <div class="part-one">
@@ -125,7 +121,7 @@
             </div>
             <div id="scale-right">
                 <div style="font-weight: bold">
-                    We propose a sliding scale of recommended payment tiers from $0-$40, applied too all visitors, in-state and out
+                    We propose a sliding scale of recommended payment tiers from $0-$40, applied to all visitors, in-state and out
                 </div>
                 <hr>
                 <div style="font-weight: normal">
@@ -168,7 +164,7 @@
                 </div>
                 <br>
                 <div id="labor-left-desc">
-                    Beyond additional costs–transportation, food, childcare, and time diverted from paid or domestic work– there is the <span class="bold italic">additional labor of investing in a space without guarantee that it is invested in you</span>; navigating cultural codes of a historically white institution; submitting to close surveillance; and viewing one’s culture through a western gaze.
+                    Beyond additional costs– think transportation, childcare, and time diverted from paid or domestic work– there is the labor of investing in a space without knowing if it’s invested in you; navigating cultural codes of a historically white institution;  viewing one’s culture through a western gaze;  submitting to a bag search and guard surveillance.
                 </div>
             </div> 
             <div id="labor-right">
@@ -183,9 +179,11 @@
                 </div>
             </div>
             <div id="labor-bot-text">
-                The Met houses “<span class="italic">significant works of art across all times and cultures.</span>” It also pledges to “<span class="italic">reach out to the widest possible audience in a spirit of inclusiveness.</span>”
+                A flat $25 admission fee will cut off communities whom the Met seeks to serve —especially marginalized, low-income out-of-state visitors and undocumented individuals. 
                 <br><br>
-                A flat $25 admission fee cuts off the very community whom the Met seeks to serve in its mission, especially marginalized, low-income out-of-state visitors and undocumented individuals. 
+                The fulfill its commitment to “<span class="italic">reach out to the widest possible audience in a spirit of inclusiveness</span>” the Met will need their time, insight, and labor. Sliding scale pricing recognizes these non-monetary contributions, moving toward a more inclusive and equitable system. 
+                <br><br>
+                *To fully offset the unaccounted cost and labor for the most marginalized potential visitors, the Met would need to pay them to attend. See <a href="http://www.lookatartgetpaid.org" target="_blank">Look At Art. Get Paid.</a>
             </div>
         </div>
     </div>
@@ -196,7 +194,7 @@
             <div id="where-met-stands-header">Where the Met Stands</div>
             <div id="where-met-stands-left">
                 <div class="where-met-stands-sub-title">
-                    <div class="where-met-stands-icon"><img src="/assets/images/ticket-icon.png"></div>&nbsp;&nbsp;
+                    <div class="where-met-stands-icon"><img src="{{ url_for('static', filename='images/ticket-icon.png') }} "></div>&nbsp;&nbsp;
                     <div class="where-met-stands-text">$41.7M</div>
                 </div>
                 <br>
@@ -206,7 +204,7 @@
             </div>
             <div id="where-met-stands-middle">
                 <div class="where-met-stands-sub-title">
-                    <div class="where-met-stands-icon"><img src="/assets/images/increase-icon.png"></div>&nbsp;&nbsp;
+                    <div class="where-met-stands-icon"><img src="{{ url_for('static', filename='images/increase-icon.png') }}"></div>&nbsp;&nbsp;
                     <div class="where-met-stands-text">$48-53M</div>
                 </div>
                 <br>
@@ -242,7 +240,8 @@
                 </div>
             </div>
             <div id="sliding-scale-performance-right">
-                <img src="/assets/images/income-scale-graph.png">
+                <img id="sliding-scale-performance-diagram-non-mobile" src="{{ url_for('static', filename='images/income-scale-graph.png') }}">
+                <img id="sliding-scale-performance-diagram-mobile" src="{{ url_for('static', filename='images/income-scale-graph-mobile.png') }}">
             </div>
         </div>
         
@@ -282,16 +281,16 @@
                 </div>
                 <br><br>
                 <div id="credits-social">
-                    <div>Read the Paper</div>
+                    <div><a href="" target="_blank">Read the Paper</a></div>
                     <br>
-                    <div>Contact Us</div>
+                    <div><a href="mailto:info@gradient.care" target="_blank">Contact Us</a></div>
                 </div>
             </div>
             <div id="credits-title">
                 Proposal By 
             </div>
             <div id="credits-gradient">
-                <div class="credits-header">Gradient</div>
+                <div class="credits-header"><a href="https://www.gradient.care" target="_blank">Gradient</a></div>
                 <div class="credits-desc">
                     Gradient is a sliding scale payment platform for online commerce.
                 </div>
@@ -300,13 +299,13 @@
                 Supported By
             </div>
             <div id="credits-laagp">
-                <div class="credits-header">Look At Art. Get Paid.</div>
+                <div class="credits-header"><a href="http://www.lookatartgetpaid.org" target="_blank">Look At Art. Get Paid.</a></div>
                 <div class="credits-desc">
                     LAAGP is an independent program that pays people who don’t go to museums to visit an art museums.
                 </div>
             </div>
             <div id="credits-abog">
-                <div class="credits-header">A Blade of Grass</div>
+                <div class="credits-header"><a href="http://www.abladeofgrass.org" target="_blank">A Blade of Grass</a></div>
                 <div class="credits-desc">
                     A Blade of Grass partners with individual artists and collectives to enact social change.
                 </div>

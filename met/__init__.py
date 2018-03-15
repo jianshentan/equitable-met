@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_assets import Environment, Bundle
+from flask_basicauth import BasicAuth
 from datetime import datetime
 from hashlib import md5
 from .routes import bp
@@ -23,6 +24,13 @@ def create_app(
     # Apply overrides
     app.config.update(config_overrides)
     
+    # set auth
+    app.config['BASIC_AUTH_FORCE'] = True
+    app.config['BASIC_AUTH_USERNAME'] = secrets.BASIC_AUTH_USERNAME
+    app.config['BASIC_AUTH_PASSWORD'] = secrets.BASIC_AUTH_PASSWORD
+    basic_auth = BasicAuth(app)
+    
+    # set mailchimp settings 
     mc_user = secrets.MAILCHIMP_USERNAME
     mc_key = secrets.MAILCHIMP_KEY
     mc_list_id = secrets.MAILCHIMP_LIST_ID

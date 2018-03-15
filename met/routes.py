@@ -9,7 +9,6 @@ from .forms import SubscribeForm
 from .mailchimp import mc
 
 bp = Blueprint('main', __name__)
-   
 
 @bp.route('/')
 def main():

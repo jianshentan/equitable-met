@@ -64,7 +64,7 @@ $body-font-size: 1.25em
 $h1-font-size-m: 2.0em
 $h2-font-size-m: 1.6em
 $h3-font-size-m: 1.2em
-$h4-font-size-m: 1.0em
+$h4-font-size-m: 1.1em
 $body-font-size-m: 1.0em
 
 
@@ -89,16 +89,21 @@ body
       display: none
     @include non-mobile
       grid-area: nav
-      justify-self: center 
+      justify-self: right  
       grid-column-start: 2
       grid-column-end: 2
       background-color: white
+      border-left: 1px solid $red
+      border-bottom: 1px solid $red
     .nav-el
       display: inline-block
       cursor: pointer
-      margin-left: 1em
-      margin-right: 1em
+      margin-left: 2em
+      margin-right: 2em
       line-height: 5em
+      a
+        color: black
+        text-decoration: none
     .nav-el:hover
       text-decoration: underline
 
@@ -300,7 +305,7 @@ body
   background-position: center
   width: 100%
   height: 100%
-  opacity : 0.2
+  opacity : 0.3
   z-index: -1
 #why
   color: black
@@ -308,41 +313,62 @@ body
   
   #why-container 
     display: grid
-    padding-left: 5em
-    padding-right: 5em
-    text-align: center
-    grid-column-gap: 3em
-    grid-template-columns: 5fr 4fr
-    grid-template-rows: 1fr auto
-    grid-template-areas: "header header" "left right"
     padding-bottom: 5em
-    
+    @include non-mobile
+      padding-left: 5em
+      padding-right: 5em
+      text-align: center
+      grid-column-gap: 3em
+      grid-template-columns: 5fr 4fr
+      grid-template-rows: 1fr auto
+      grid-template-areas: "header header" "left right"
+    @include mobile
+      padding: 1em
+      grid-row-gap: 2em
+      grid-template-columns: 1fr
+      grid-template-rows: auto auto auto
+      grid-template-areas: "header" "left" "right"
+      
     #why-header
       grid-area: header
-      font-size: $h2-font-size
       font-weight: bold
-      margin-top: 2em
-      margin-bottom: 2em
+      @include non-mobile
+        margin-top: 2em
+        margin-bottom: 2em
+        font-size: $h2-font-size
+      @include mobile
+        font-size: $h2-font-size-m
     #why-left
       grid-area: left
       justify-self: center
       align-self: center     
       text-align: left
       #why-left-header
-        font-size: $h3-font-size
         color: $red
         font-weight: bold
+        @include non-mobile
+          font-size: $h3-font-size
+        @include mobile
+          font-size: $h2-font-size-m
+          margin-bottom: 1em
       #why-left-desc
-        font-size: $h4-font-size
+        @include non-mobile
+          font-size: $h4-font-size
+        @include mobile
+          font-size: $h4-font-size-m
+        
     #why-right
       grid-area: right
       text-align: left
       justify-self: center
       align-self: center
-      font-size: $body-font-size
       background-color: white
-      padding: 2em
-      box-shadow: 2px 2px 5px rgba(50,50,50,0.3)
+      @include non-mobile
+        padding: 2em
+        font-size: $body-font-size
+      @include mobile
+        padding: 1em
+        font-size: $body-font-size-m
       
       #why-right-quote-grid
         grid-template-row: auto auto
@@ -362,35 +388,52 @@ body
   color: white
   
   #labor-container
-    padding-top: 5em
-    padding-bottom: 5em
-    padding-left: 2em
-    padding-right: 2em
     display: grid
-    grid-row-gap: 5em
-    grid-column-gap: 2em
-    grid-template-columns: 1fr 1fr
-    grid-template-rows: auto auto auto
-    grid-template-areas: "top-text top-text" "left right" "bot-text bot-text"
+    @include non-mobile
+      padding-top: 5em
+      padding-bottom: 5em
+      padding-left: 2em
+      padding-right: 2em
+      grid-row-gap: 5em
+      grid-column-gap: 2em
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: auto auto auto
+      grid-template-areas: "top-text top-text" "left right" "bot-text bot-text"
+    @include mobile
+      padding: 1em
+      grid-row-gap: 2em
+      grid-template-columns: 1fr
+      grid-template-rows: auto auto auto auto
+      grid-template-areas: "top-text" "left" "right" "bot-text"
 
     #labor-top-text
-      width: 75%
       grid-area: top-text
-      font-size: $h3-font-size
+      @include non-mobile
+        font-size: $h3-font-size
+        width: 75%
+      @include mobile
+        font-size: $h3-font-size-m
       
     #labor-left
       grid-area: left
-      border: 4px dashed white
       border-radius: 3px
-      padding-top: 2em
-      padding-bottom: 2em
-      padding-left: 4em
-      padding-right: 4em
+      @include non-mobile
+        border: 4px dashed white
+        padding: 2em 4em 2em 4em
+      @include mobile
+        border: 3px dashed white
+        padding: 1em 2em 1em 2em 
       #labor-left-header
         text-decoration: underline
-        font-size: $h4-font-size
+        @include non-mobile
+          font-size: $h4-font-size
+        @include mobile
+          font-size: $h4-font-size-m
       #labor-left-desc
-        font-size: $body-font-size
+        @include non-mobile
+          font-size: $body-font-size
+        @include mobile
+          font-size: $body-font-size-m
     
     #labor-right
       grid-area: right
@@ -398,21 +441,32 @@ body
       text-align: center
       justify-self: center
       img
-        width: 29em
+        @include non-mobile
+          width: 29em
+        @include mobile
+          width: 80%
         
       #labor-right-text-container
-        width: 29em
         justify-content: center
         display: grid
         text-align: left
         grid-template-columns: 1fr 1.5fr 1fr
         grid-template-areas: "text-left . text-right"
+        @include non-mobile
+          width: 29em
+        @include mobile
+          width: 80%
+          margin: 0 auto
         #labor-right-left-text
           grid-area: text-left
         #labor-right-right-text
           grid-area: text-right
+          
     #labor-bot-text
-      font-size: $body-font-size
+      @include non-mobile
+        font-size: $body-font-size
+      @include mobile
+        font-size: $body-font-size-m
       background-color: $gray
       color: $red
       padding: 1em
@@ -553,6 +607,8 @@ body
         width: 90%
         img
           width: 100%
+        #sliding-scale-performance-diagram-mobile
+          display: none
       @include mobile
         text-align: center
         justify-self: center 
@@ -560,6 +616,8 @@ body
         text-align: center
         img
           width: 90%
+        #sliding-scale-performance-diagram-non-mobile
+          display: none
   
   #sliding-scale-performance-conclusion
     background-color: $red
@@ -605,8 +663,8 @@ body
     @include mobile
       grid-template-rows: 1fr 1fr
       grid-template-areas: "prompt" "action"
-      padding-top: 2em
-      padding-bottom: 2em
+      padding-top: 3em
+      padding-bottom: 3em
     
     #cta-prompt
       grid-area: prompt
@@ -681,6 +739,9 @@ body
       grid-template-columns: 1fr 
       grid-template-rows: 1fr auto auto auto auto
       grid-template-areas: "title" "laagp" "gradient" "support" "abog" "info" "footer"
+      
+    a
+      color: white
     
     #credits-info
       grid-area: info
@@ -697,7 +758,7 @@ body
         #credits-logo
           img
             width: 35vw
-    
+            
     #credits-title
       text-align: left
       grid-area: title
