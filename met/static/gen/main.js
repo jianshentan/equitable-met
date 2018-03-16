@@ -50,21 +50,21 @@ function subscribe_newsletter(
                     },  
                     body: subscribe_form.serialize() 
                 })
-                // .then(resp => resp.json())
-                // .then(function(res) {
-                //     if (res.success == true) {
-                //         subscribe_form_feedback
-                //             .css('color', '#00FF00') // green
-                //             .html("Thank you for subscribing!");
+                .then(resp => resp.json())
+                .then(function(res) {
+                    if (res.success == true) {
+                        subscribe_form_feedback
+                            .css('color', '#FFFFFF') // green
+                            .html("Thank you for subscribing!");
 // 
-                //         // disable form submit on success
-                //         subscribe_form_submit.prop('disabled', true);
-                //     } else {
-                //         subscribe_form_feedback
-                //             .css('color', '#FFFF00') // yellow
-                //             .html(res.errors);
-                //     }
-                // })
+                        // disable form submit on success
+                        subscribe_form_submit.prop('disabled', true);
+                    } else {
+                        subscribe_form_feedback
+                            .css('color', '#FFFF00') // yellow
+                            .html(res.errors);
+                    }
+                })
                 .catch(function(err) {
                     console.log(err);
                 });
