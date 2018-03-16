@@ -25,10 +25,10 @@ def create_app(
     app.config.update(config_overrides)
     
     # set auth
-    # app.config['BASIC_AUTH_FORCE'] = True
-    # app.config['BASIC_AUTH_USERNAME'] = secrets.BASIC_AUTH_USERNAME
-    # app.config['BASIC_AUTH_PASSWORD'] = secrets.BASIC_AUTH_PASSWORD
-    # basic_auth = BasicAuth(app)
+    app.config['BASIC_AUTH_FORCE'] = True
+    app.config['BASIC_AUTH_USERNAME'] = secrets.BASIC_AUTH_USERNAME
+    app.config['BASIC_AUTH_PASSWORD'] = secrets.BASIC_AUTH_PASSWORD
+    basic_auth = BasicAuth(app)
     
     # set mailchimp settings 
     mc_user = secrets.MAILCHIMP_USERNAME
