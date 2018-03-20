@@ -26,7 +26,12 @@ def subscribe():
     '''
     form = SubscribeForm(request.form, csrf_enabled=False)
     if form.validate():
-        mc.add_or_update_user(form.email.data)
+        mc.add_or_update_user(\
+            email=form.email.data, 
+            first_name=form.firstname.data, 
+            last_name=form.lastname.data, 
+            zipcode=form.zipcode.data)
+            
         return jsonify(success=True)
     else:
         return jsonify(success=False, errors=form.errors["email"][0])

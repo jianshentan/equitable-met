@@ -56,7 +56,7 @@ function subscribe_newsletter(
                         subscribe_form_feedback
                             .css('color', '#FFFFFF') // green
                             .html("Thank you for subscribing!");
-// 
+                            
                         // disable form submit on success
                         subscribe_form_submit.prop('disabled', true);
                     } else {

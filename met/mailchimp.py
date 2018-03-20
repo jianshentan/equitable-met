@@ -19,7 +19,8 @@ class MailchimpClient():
             email: str, 
             status: str = 'subscribed',
             first_name: str = '', 
-            last_name: str = ''):
+            last_name: str = '',
+            zipcode: str= ''):
         '''
         add a new subscriber to mailchimp
         if subscriber already exists, do not throw error.
@@ -33,7 +34,7 @@ class MailchimpClient():
                 'merge_fields': {
                     'FNAME': first_name,
                     'LNAME': last_name
-                },
+                }
             })
 
         except KeyError as e:

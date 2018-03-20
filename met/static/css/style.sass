@@ -42,6 +42,10 @@ $gray: #eee
     @include desktop
       max-width: 1024px
 
+.section
+  @include non-mobile
+    min-width: 960px
+
 .bold
   font-weight: bold
   
@@ -56,7 +60,7 @@ h1, h2, h3, h4, h5, h6
   margin: 0
 
 $h1-font-size: 3.5em
-$h2-font-size: 2.5em
+$h2-font-size: 2.3em
 $h3-font-size: 2.0em
 $h4-font-size: 1.5em
 $body-font-size: 1.25em
@@ -119,7 +123,7 @@ body
     padding: 1em
     @include non-mobile
       position: absolute
-      font-size: $h2-font-size
+      font-size: $h3-font-size
       max-width: 10em
     @include mobile
       position: relative
@@ -131,9 +135,11 @@ body
     display: grid
     justify-content: center
     @include non-mobile
-      margin-top: 7.5em
-      margin-bottom: 7.5em
-      grid-template-columns: auto 25em
+      margin-top: 7.0em
+      margin-bottom: 7.0em
+      padding-left: 7.5em
+      padding-right: 7.5em
+      grid-template-columns: 2fr 1fr
       grid-template-rows: auto
     @include mobile
       margin-top: 0px 
@@ -165,20 +171,24 @@ body
         grid-row-end: 2
         padding: 2em
       .part-one
-        color: $red
         @include non-mobile
+          color: black
           font-size: $h4-font-size
           padding-bottom: 2em
         @include mobile
+          color: $red
           font-size: $h4-font-size-m
       .part-two
-        color: black
-        font-weight: bold
-        font-style: italic
         @include non-mobile
-          font-size: $h3-font-size
+          font-size: $h4-font-size
+          color: $red
+          font-weight: bold
+          font-style: italic
         @include mobile
-          font-size: $h3-font-size-m
+          display: none
+      .part-three
+        @include non-mobile
+          display: none
   
 #scale
   background-color: $gray
@@ -293,96 +303,6 @@ body
         grid-template-columns: repeat(4, 1fr)
         grid-template-rows: 1fr
 
-
-// #why:after
-//   content: ""
-//   display: block
-//   position: absolute
-//   top: 0
-//   left: 0
-//   background-image: url('/assets/images/met-gallery.jpg')
-//   background-size: cover
-//   background-position: center
-//   width: 100%
-//   height: 100%
-//   opacity : 0.3
-//   z-index: -1
-// #why
-//   color: black
-//   position: relative
-//   
-//   #why-container 
-//     display: grid
-//     padding-bottom: 5em
-//     @include non-mobile
-//       padding-left: 5em
-//       padding-right: 5em
-//       text-align: center
-//       grid-column-gap: 3em
-//       grid-template-columns: 5fr 4fr
-//       grid-template-rows: 1fr auto
-//       grid-template-areas: "header header" "left right"
-//     @include mobile
-//       padding: 1em
-//       grid-row-gap: 2em
-//       grid-template-columns: 1fr
-//       grid-template-rows: auto auto auto
-//       grid-template-areas: "header" "left" "right"
-//       
-//     #why-header
-//       grid-area: header
-//       font-weight: bold
-//       @include non-mobile
-//         margin-top: 2em
-//         margin-bottom: 2em
-//         font-size: $h2-font-size
-//       @include mobile
-//         font-size: $h2-font-size-m
-//     #why-left
-//       grid-area: left
-//       justify-self: center
-//       align-self: center     
-//       text-align: left
-//       #why-left-header
-//         color: $red
-//         font-weight: bold
-//         @include non-mobile
-//           font-size: $h3-font-size
-//         @include mobile
-//           font-size: $h2-font-size-m
-//           margin-bottom: 1em
-//       #why-left-desc
-//         @include non-mobile
-//           font-size: $h4-font-size
-//         @include mobile
-//           font-size: $h4-font-size-m
-//         
-//     #why-right
-//       grid-area: right
-//       text-align: left
-//       justify-self: center
-//       align-self: center
-//       background-color: white
-//       @include non-mobile
-//         padding: 2em
-//         font-size: $body-font-size
-//       @include mobile
-//         padding: 1em
-//         font-size: $body-font-size-m
-//       
-//       #why-right-quote-grid
-//         grid-template-row: auto auto
-//         grid-template-areas: "quote" "by"
-//     
-//         #why-right-quote-quote
-//           grid-area: quote
-//           font-style: italic
-//         #why-right-quote-by
-//           grid-area: by
-//           margin-top: 1em
-//           justify-self: right
-//           text-align: right
-
 #labor
   background-color: $red
   color: white
@@ -487,7 +407,7 @@ body
         font-size: $body-font-size-m
       background-color: $gray
       color: $red
-      padding: 1em
+      padding: 1.5em
       grid-area: bot-text
       
   
@@ -643,12 +563,20 @@ body
     text-align: center
     @include non-mobile
       margin-top: 2em
-      font-size: $h3-font-size
       padding: 1em 1.5em 1em 1.5em
     @include mobile
       padding: 1em
-      font-size: $h3-font-size-m
       width: 90%
+    #sliding-scale-performance-conclusion-top
+      @include non-mobile
+        font-size: $h3-font-size
+      @include mobile
+        font-size: $h3-font-size-m
+    #sliding-scale-performance-conclusion-bot
+      @include non-mobile
+        font-size: $h4-font-size
+      @include mobile
+        font-size: $h4-font-size-m
     
   #sliding-scale-performance-reference
     color: black
@@ -670,59 +598,76 @@ body
   
   #cta-container
     display: grid
-    text-align: center
     grid-template-columns: 1fr
     position: relative
+    text-align: center
     @include non-mobile
-      grid-template-rows: 1fr 1fr auto
-      grid-template-areas: "prompt" "action" "social"
+      grid-template-rows: auto auto 1fr auto
+      grid-template-areas: "prompt" "subtitle" "action" "social"
       padding-top: 5em
       padding-bottom: 5em
     @include mobile
-      grid-template-rows: 1fr 1fr
-      grid-template-areas: "prompt" "action"
-      padding-top: 3em
-      padding-bottom: 3em
+      grid-template-rows: auto auto 1fr auto
+      grid-template-areas: "prompt" "subtitle" "action" "social"
+      padding: 3em 1em 3em 1em 
     
     #cta-prompt
       grid-area: prompt
       @include non-mobile
         font-size: $h2-font-size
+        align-self: end
       @include mobile
-        font-size: $h2-font-size-m
+        align-self: center
+        font-size: $h3-font-size-m
+        
+    #cta-sub-title
+      grid-area: subtitle
+      align-self: center
+      @include non-mobile
+        font-size: $body-font-size
+        margin-top: 1em
+        margin-bottom: 1em
+      @include mobile
+        font-size: $body-font-size-m
+        margin-bottom: 1em
+        margin-top: 1em
     
     #cta-action
       grid-area: action
-      
-      .subscribe-form-input
-        font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
-        background-color: $red
-        color: white
-        border: 2px solid white
+      align-self: center
+      .subscribe-form-el
         @include non-mobile
-          padding: 0.5em 1em 0.5em 1em
-          font-size: $h3-font-size
-        @include mobile
-          margin-bottom: 1em
-          padding: 2vw
-          font-size: $h3-font-size-m
-      .subscribe-form-input:-ms-input-placeholder
-        color: white
-      .subscribe-form-input::-ms-input-placeholder
-        color: white
-      .subscribe-form-input::placeholder
-        color: white
+          margin-bottom: 10px
+        .subscribe-form-input
+          font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
+          background-color: $red
+          color: white
+          border: 2px solid white
+          @include non-mobile
+            padding: 0.5em 1em 0.5em 1em
+            font-size: $body-font-size
+          @include mobile
+            margin-bottom: 1em
+            padding: 2vw
+            font-size: $body-font-size-m
+          
+        .subscribe-form-input:-ms-input-placeholder
+          color: white
+        .subscribe-form-input::-ms-input-placeholder
+          color: white
+        .subscribe-form-input::placeholder
+          color: white
       .subscribe-form-submit
         font-family: "gt-pressura-monoregular", "Helvetica", "Arial", sans-serif
         background-color: white
         border: 2px solid white
         color: $red
         @include non-mobile
-          font-size: $h3-font-size
-          padding: 0.5em 1em 0.5em 1em
+          font-size: $body-font-size
+          padding: 0.5em 2em 0.5em 2em
         @include mobile
           padding: 2vw
-          font-size: $h3-font-size-m
+          font-size: $body-font-size-m
         
     #cta-social
       grid-area: social    
@@ -732,12 +677,12 @@ body
           width: 4em
           margin: 0 1em
       @include mobile
-        position: absolute
-        bottom: 1em
-        right: 1em
+        margin-top: 1em
         img
           width: 10vw
           margin: 0 2vw
+        #cta-social-label
+          display: none
         
 #credits
   background-color: black

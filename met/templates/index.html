@@ -27,7 +27,7 @@
     <meta property="og:site_name" content="Towards Equitable Met Ticketing">
     <meta property="og:url" content="http://www.equitablemet.com" >
     <meta property="og:description" content="A proposal asking The Met to consider sliding scale ticket pricing based on income instead of their newly implemented fixed $25 fee that will slash access for low-income out-of-state visitors and undercut the Met’s mission to “reach out to the widest possible audience in a spirit of inclusiveness.”" >
-    <meta property="og:image" content="{{ url_for('static', filename='images/share-image.png') }}">
+    <meta property="og:image" content="http://www.equitablemet.com/assets/images/share-image.png">
     <meta property="og:type" content="website" >
     <meta property="og:locale" content="en_US" >
 
@@ -36,7 +36,7 @@
     <meta property="twitter:title" content="Towards Equitable Met Ticketing" >
     <meta property="twitter:description" content="Towards Equitable Met Ticketing is a proposal asking The Met to consider sliding scale ticket pricing based on income instead of their newly implemented fixed $25 fee that will slash access for low-income out-of-state visitors and undercut the Met’s mission to “reach out to the widest possible audience in a spirit of inclusiveness.”" >
     <meta property="twitter:url" content="http://www.equitablemet.com" >
-    <meta property="twitter:image" content="{{ url_for('static', filename='images/share-image.png') }}">
+    <meta property="twitter:image" content="http://www.equitablemet.com/assets/images/share-image.png">
 
     <!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -62,7 +62,7 @@
     </div>
     
     <!-- SPLASH -->
-    <div id="splash">
+    <div id="splash" class="section">
         <div id="title-box">
             Towards Equitable Met Ticketing
         </div>
@@ -72,11 +72,15 @@
             </div>
             <div id="splash-desc">
                 <div class="part-one">
-                    On March 1st The Met changed its 50 year pay-what-you-want admission policy so that out of state visitors must pay a flat $25.
+                    On March 1st The Met changed its 50 year pay-what-you-want admission policy. Now, out of state visitors must now pay a flat $25. 
+                    <!--<a href="https://www.google.com" target="_blank"><div style="font-size: 0.8em; margin-top: 1em;">Read More</div></a>-->
                 </div>
-                <br><br>
                 <div class="part-two">
-                    If the Met must increase its admissions revenue, its strategy should prioritize accessibility. 
+                    This is a mistake.
+                </div>
+                <div class="part-three">
+                    <br>
+                    Please read our full statement <a href="https://medium.com/gradient-sliding-scale/towards-an-equitable-met-faq-93f7f17fd25b" target="_blank">here</a>.
                 </div>
             </div>
         </div>
@@ -84,7 +88,7 @@
     
    
     <!-- Scale Proposal -->
-    <div id="scale">
+    <div id="scale" class="section">
         <div id="scale-container" class="contain">
             <div id="scale-header">
                 Proposal: <span id="scale-price-legend">&nbsp;Price&nbsp;</span>&nbsp;admission <br>on a sliding scale by visitor <span id="scale-income-legend">&nbsp;income&nbsp;</span>.
@@ -116,45 +120,23 @@
                 </div>
                 <br>
                 <div id="scale-annotation">
-                    If you make <span id="annotation-income">____</span>, you would pay <span id="annotation-price">____</span> for admissions.
+                    If you make <span id="annotation-income">____</span> per year, we recommend that you pay <span id="annotation-price">____</span> for admissions.
                 </div>
             </div>
             <div id="scale-right">
                 <div style="font-weight: bold">
-                    We propose a sliding scale of recommended payment tiers from $0-$35, applied to all visitors, in-state and out
+                    We propose a sliding scale of recommended payment tiers from $0-$35, applied to all visitors, in-state and out.
                 </div>
                 <hr>
                 <div style="font-weight: normal">
-                    Visitors have the option to pay as they wish, in accordance wih this scale or not, however ticket prices should be explicitly recommended.
+                    Visitors have the option to pay as they wish, in accordance with this scale or not, however ticket prices should be explicitly recommended.
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Why This Matters 
-    <div id="why">
-        <div id="why-container" class="contain">
-            <div id="why-header">Why This Matters</div> 
-            <div id="why-left">
-                <div id="why-left-header">The Met's value is not universal:</div>
-                <div id="why-left-desc">It reflects the priorities and perspectives of its affluent, largely white, founders and donors.</div>
-            </div> 
-            <div id="why-right">
-                <div id="why-right-quote-grid">
-                    <div id="why-right-quote-quote">
-                        “[Museums] cannot separate themselves from the collective memories that link their development with white supremacy, hetero-patriarchy, abuse of labor, colonization, imperialist theft of art and artifacts, destruction or absencing of alternative ways of interpreting and representing art and artifacts, structural racism and other oppressions.”    
-                    </div>
-                    <div id="why-right-quote-by">
-                        MASS Action
-                    </div>
-                </div>
-            </div> 
-        </div>
-    </div>
-    -->
-    
     <!-- Labor -->
-    <div id="labor">
+    <div id="labor" class="section">
         <div id="labor-container" class="contain">
             <div id="labor-header">
                 What's at Stake
@@ -169,7 +151,11 @@
                 </div>
                 <br>
                 <div id="labor-left-desc">
-                    Beyond additional costs—think transportation, childcare, and time diverted from paid or domestic work—there is the labor of investing in a space without knowing if it’s invested in you. This includes navigating cultural codes of a historically white institution, viewing one’s culture through a western gaze, as well as submitting to a bag search and guard surveillance.
+                    Beyond additional costs — such as transportation, childcare, and time diverted from paid or domestic work — there is the labor of investing in a space without knowing if it’s invested in you. 
+                    <br><br>
+                    This includes navigating the cultural codes of a historically white institution, viewing one’s culture through a western gaze, as well as submitting to a bag search and guard surveillance.
+                    <br><br>
+                    <a href="https://medium.com/gradient-sliding-scale/towards-an-equitable-met-faq-93f7f17fd25b" target="_blank" style="color:white;font-size:0.75em">Read more about this.</a>
                 </div>
             </div> 
             <div id="labor-right">
@@ -184,17 +170,17 @@
                 </div>
             </div>
             <div id="labor-bot-text">
-                A flat $25 admission fee will cut off communities that the Met seeks to serve—especially marginalized are low-income out-of-state visitors and undocumented individuals. 
+                A flat $25 admission fee will cut off communities that the Met seeks to serve — especially marginalized and low-income out-of-state visitors and undocumented individuals. 
                 <br><br>
-                The Met will need their time, insight, and labor in order to fulfill its commitment to “<span class="italic">reach out to the widest possible audience in a spirit of inclusiveness.</span>”. Sliding scale pricing recognizes these non-monetary contributions, moving toward a more inclusive and equitable system. 
+                The Met needs the time, insight, and labor of these communities in order to fulfill its commitment to “<span class="italic">reach out to the widest possible audience in a spirit of inclusiveness.</span>” Sliding scale pricing recognizes these unaccounted costs and contributions, moving toward a more inclusive and equitable system.*
                 <br><br>
-                <div class="bold">*To fully offset the unaccounted cost and labor for potential visitors who are most marginalized, the Met would need to pay them to attend. See <a href="http://www.lookatartgetpaid.org" target="_blank">Look At Art. Get Paid.</a></div>
+                <div class="" style="font-size:0.75em">*To fully offset the unaccounted cost and labor for potential visitors who are most marginalized, the Met would need to pay them to attend. See <a href="http://www.lookatartgetpaid.org" target="_blank">Look At Art. Get Paid.</a></div>
             </div>
         </div>
     </div>
     
     <!-- Where the Met Stands -->
-    <div id="where-met-stands">
+    <div id="where-met-stands" class="section">
         <div id="where-met-stands-container" class="contain">
             <div id="where-met-stands-header">Where the Met Stands</div>
             <div id="where-met-stands-left">
@@ -231,7 +217,7 @@
     </div>
     
     <!-- Sliding Scale Performance -->
-    <div id="sliding-scale-performance">
+    <div id="sliding-scale-performance" class="section">
         <div id="sliding-scale-performance-container" class="contain">
             <div id="sliding-scale-performance-header">
               How Does Sliding Scale Perform?    
@@ -239,9 +225,9 @@
             <div id="sliding-scale-performance-left">
                 <div id="sliding-scale-performance-sub-title">4.5M</div>
                 <div id="sliding-scale-performance-desc">
-                    The number of visitors who purchased a single-visit ticket at the Met in 2016-2017. Fig. 1 shows an approximate income distribution of these visitors.
+                    The number of visitors who purchased a single-visit ticket at the Met in 2016-2017. This diagram shows an approximate income distribution of these visitors.
                     <br><br>
-                    Shown in this figure is a complete breakdown of ticket prices for each income bracket.
+                    The diagram below shows a complete breakdown of ticket prices for each income bracket.
                 </div>
             </div>
             <div id="sliding-scale-performance-right">
@@ -251,7 +237,8 @@
         </div>
         
         <div id="sliding-scale-performance-conclusion" class="contain">
-            With this sliding scale, we project an 11M increase in revenue, bringing the Met revenue to a total of 53.2M
+            <div id="sliding-scale-performance-conclusion-top">Total Sliding Scale Revenue: $53M </div>
+            <div id="sliding-scale-performance-conclusion-bot">This surpasses the Met's high-end revenue goal for an $11M increase in admission revenue.</div>
         </div>
         <div id="sliding-scale-performance-reference" class="contain">
             For a breakdown of our working numbers, assumptions around visitor truthfulness, and sources, see our complete work <a href="https://medium.com/gradient-sliding-scale/towards-equitable-met-ticketing-cf362ca35887" target="_blank">here</a>.
@@ -259,26 +246,41 @@
     </div>
     
     <!-- Call to Action -->
-    <div id="cta">
+    <div id="cta" class="section">
         <div id="cta-container" class="contain">
-            <div id="cta-prompt">I would pay to visit <span class="bold">The Met</span> on a <span class="bold">sliding scale</span>.</div>   
+            <div id="cta-prompt">I would pay to visit <span class="bold">The&nbsp;Met</span>&nbsp;on&nbsp;a&nbsp;<span class="bold">sliding&nbsp;scale</span>.</div>   
+            <div id="cta-sub-title">
+                <!--If the Met must increase its admissions revenue, its strategy should prioritize accessibility.-->
+                To sign the petition, please add your name and email below. 
+            </div>
             <div id="cta-action">
                 <form class="subscribe-form">
-                    <input class="subscribe-form-input" type="text" placeholder="your@email.com" name="email" value="">
+                    <br>
+                    <div class="subscribe-form-el">
+                        <input class="subscribe-form-input" type="text" placeholder="First name" name="firstname" value="">
+                        <input class="subscribe-form-input" type="text" placeholder="Last name" name="lastname" value="">
+                        <input class="subscribe-form-input" type="text" placeholder="your@email.com" name="email" value="">
+                    </div>
                     <input class="subscribe-form-submit" type="submit" value="Submit">
                     <br><br>
                     <div class="subscribe-form-feedback"></div>
                 </form>
             </div>
             <div id="cta-social">
-                <img src="{{ url_for('static', filename='images/fb-icon.png') }}">
-                <img src="{{ url_for('static', filename='images/twitter-icon.png') }}">
+                <div>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=www.equitablemet.com" target="_blank"><img src="{{ url_for('static', filename='images/fb-icon.png') }}"></a>
+                    <a href="https://twitter.com/home?status=I%20would%20pay%20to%20visit%20The%20Met%20on%20a%20sliding%20scale%20http%3A//www.equitablemet.com%20%23haveyouMETslidingscale" target="_blank"><img src="{{ url_for('static', filename='images/twitter-icon.png') }}"></a>
+                </div>
+                <div id="cta-social-label">
+                    <br>
+                    Share with #haveyouMETslidingscale
+                </div>
             </div>
         </div>
     </div>
     
     <!-- Credits -->
-    <div id="credits">
+    <div id="credits" class="section">
         <div id="credits-container" class="contain">
             <div id="credits-info">
                 <div id="credits-logo">
